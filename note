@@ -1,0 +1,13 @@
+Citations :
+GET /all/livre/:livre Retourne toutes les citations du livre.
+GET /random/livre/:livre Retourne une citation aléatoire parmis toutes les citations du livre.
+
+Personnages :
+GET /random/personnage/:personnage Retourne une citation aléatoire parmis toutes les citations du personnage.
+GET /all/personnage/:personnage Retourne toutes les citations du personnage.
+
+Livres :
+GET /random/livre/:livre Retourne une citation aléatoire parmis toutes les citations du livre.
+GET /all/livre/:livre Retourne toutes les citations du livre.
+
+$('#thisdiv').load(document.URL +  ' #thisdiv');

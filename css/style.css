@@ -1,0 +1,536 @@
+:root {
+    --color-background : #3e3023;
+    --color-part : #dfc8b2;
+    --color-font : #000000;
+    --color-hover : #625951;
+    --border : 1px solid rgb(56 25 9);
+    --under-header : 10%;
+    --y-transform-sticky : -60px;
+    --y-transform-back-sticky : 60px;
+}
+@font-face {
+    font-family: 'default';
+    src: url('font/papyrus/papyrus.ttf');
+}
+@media (orientation : portrait) {
+    :root {
+        --under-header : 15% !important;
+    }
+    section, #list_character, #list_livre
+    {
+        width : 92% !important;
+        height : auto !important;
+    }
+    section
+    {
+        height : 80% !important;
+    }
+    header
+    {
+        font-size : 2.8rem !important;
+    }
+    #menue {
+        width : 85% !important;
+    }
+    #logo {
+        width : 15% !important;
+    }
+    section
+    {
+        font-size : 2.4rem !important;
+    }
+    button
+    {
+        font-size : 2.4rem !important;
+    }
+    #logo_landscape
+    {
+        display : none !important;
+    }
+    #logo_portait
+    {
+        display : flex !important;
+    }
+    #citation_layout {
+        padding : 0 50px 0 50px !important;
+        grid-template-columns : repeat(20, 5%) !important;
+        grid-template-rows : repeat(50, 2%) !important;
+    }
+    .picture_citation {
+        grid-column : 1/21 !important;
+        grid-row : 1/25 !important;
+    }
+    .picture_citation img{
+        height : 100% !important;
+        width : auto !important;
+    }
+    .text_citation {
+        grid-column : 1/21 !important;
+        grid-row : 28/47 !important;
+        font-weight : bolder !important;
+        font-size : 3rem;
+    }
+    .info_citation {
+        grid-column : 1/21 !important;
+        grid-row : 47/50 !important;
+    }
+}
+@media (orientation : landscape) and (max-width : 1000px) {
+    :root {
+        --y-transform-sticky : -30px;
+        --y-transform-back-sticky : 30px;
+    }
+}
+@media (max-width : 3000px) {
+    :root {
+        --under-header : 10%;
+    }
+    header
+    {
+        font-size : 3.1rem;
+    }
+    section
+    {
+        width : 70%;
+        font-size : 2.4rem;
+    }
+    footer
+    {
+        font-size: 2rem;
+        /* padding : 10px 25% 10px 25%; */
+    }
+    footer div
+    {
+        padding : 0 250px 0 250px;
+    }
+    button {
+        font-size : 2.4rem;
+    }
+    .card_character
+    {
+        font-size : 2rem;
+        height : 500px;
+        width : 400px;
+    }
+    .card_livre
+    {
+        font-size : 2rem;
+    }
+    #list_character, #list_livre
+    {
+        width : 80%;
+    }
+    .picture_card_livre {
+        height : 300px;
+    }
+    #logo_portait
+    {
+        display : none;
+    }
+    #logo_landscape
+    {
+        display :flex;
+    }
+    #menue {
+        width : 82%;
+    }
+    #logo {
+        width : 18%;
+    }
+    #citation_layout {
+        grid-template-columns : repeat(20, 5%);
+        grid-template-rows : repeat(20, 5%);
+    }
+    .text_citation {
+        grid-column : 5/21;
+        grid-row : 1/16;
+    }
+    .info_citation {
+        grid-column : 5/21;
+        grid-row : 18/21;
+    }
+    .picture_citation {
+        grid-column : 1/5;
+        grid-row : 1/16;
+    }
+    .picture_citation img{
+        width : 100%;
+    }
+}
+@media (max-width : 1500px) {
+    :root {
+        --under-header : 7%;
+        --y-transform-sticky : -40px;
+        --y-transform-back-sticky : 40px;
+    }
+    header
+    {
+        font-size : 2.1rem;;
+    }
+    section
+    {
+        width : 70%;
+        font-size : 1.5rem;
+    }
+    button {
+        font-size : 1.5rem;
+    }
+    footer
+    {
+        font-size : 1.4rem;
+        /* padding : 5px 85px 5px 20px; */
+    }
+    footer div
+    {
+        padding: 0 90px 0 20px;
+    }
+    .card_character
+    {
+        font-size : 1.5rem;
+        height : 400px;
+        width : 320px;
+    }
+    .card_livre
+    {
+        font-size : 1.5rem;
+    }
+    #list_character, #list_livre
+    {
+        width : 80%;
+    }
+    .picture_card_livre {
+        height : 200px;
+    }
+    #logo_portait
+    {
+        display : none;
+    }
+    #logo_landscape
+    {
+        display :flex;
+    }
+    #menue {
+        width : 82%;
+    }
+    #logo {
+        width : 18%;
+    }
+    #citation_layout {
+        grid-template-columns : repeat(20, 5%);
+        grid-template-rows : repeat(20, 5%);
+    }
+    .text_citation {
+        grid-column : 5/21;
+        grid-row : 1/16;
+    }
+    .info_citation {
+        grid-column : 5/21;
+        grid-row : 18/21;
+    }
+    .picture_citation {
+        grid-column : 1/5;
+        grid-row : 1/16;
+    }
+    .picture_citation img{
+        width : 100%;
+    }
+}
+html {
+    height : 100%;
+    transition: smooth;
+    scroll-behavior : smooth;
+}
+body {
+    background-color : var(--color-background);
+    color : var(--color-font);
+    display : flex;
+    justify-content : space-between;
+    flex-direction : column;
+    height : 100%;
+    margin : 0;
+    font-family: 'default';
+    align-items : center;
+}
+a {
+    color : var(--color-font);
+    text-decoration : none;
+    animation : revers_hight_light 0.2s ease;
+}
+a:hover, button:hover{
+    color : var(--color-hover);
+    text-decoration : none;
+}
+header {
+    position : fixed;
+    width : 100%;
+    /* height : 150px; */
+    background-color : var(--color-part);
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    /* font-size : 3rem; */
+    border-bottom : var(--border);
+    margin-bottom : 10px;
+    z-index : 100000;
+    animation : non_sticky_header 1.2s ease;
+}
+header.sticky {
+    width : 100%;
+    animation : sticky_header 1s ease-in-out;
+    transform : translateY(var(--y-transform-sticky));
+}
+header.sticky a {
+    transform : scale(0.5) translateY(var(--y-transform-back-sticky));
+    animation : sticky_header_a 1s ease;
+}
+footer {
+    width : 100%;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    border-top : var(--border);
+    /* padding : 10px 25% 10px 25%; */
+    margin-top : 10px;
+    background-color : var(--color-part);
+    /* font-size: 2rem; */
+}
+header img {
+    width : 100%;
+    height: auto;
+    animation : non_sticky_header_img 1s ease;
+}
+header ul {
+    width : 100%;
+    height : 100%;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+}
+header a {
+    list-style: none;
+    height : 100%;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    animation : non_sticky_header_a 0.7s ease;
+}
+section {
+    background-color : var(--color-part);
+    height : 60%;
+    display: flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    padding : 30px 20px 30px 20px;
+    /* font-size: 3rem; */
+    border-radius : 5px;
+    border : var(--border);
+    margin : var(--under-header) 0 0 0;
+}
+ul {
+    margin : 0;
+    padding : 0;
+}
+li {
+    list-style : none;
+    width : 100%;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    text-align : center;
+    margin : 0 10px 0 10px;
+}
+button {
+    /* height: 50px; */
+    color: var(--color-font);
+    /* width: 100px; */
+    padding: 10px;
+    font-family: 'default';
+    background: none;
+    border : var(--border);
+    background-color: var(--color-part);
+    border-radius : 5px;
+    margin-top : 10px;
+}
+#citation_layout {
+    display : grid;
+    padding : 50px 50px 0 50px;
+    height : 100%;
+    width : 95%;
+}
+.picture_citation {
+    text-align: center;
+}
+.picture_citation img{
+    border : var(--border);
+}
+.text_citation {
+    text-align : justify;
+    overflow-y : scroll;
+    padding : 0 30px 0 20px;
+}
+.info_citation {
+    display : flex;
+    justify-content : space-around;
+}
+.info_citation div {
+    display : flex;
+    align-items : center;
+}
+#list_character {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    justify-content : space-around;
+    margin : var(--under-header) 0 100px 0;
+}
+.card_character {
+    background-color : var(--color-part);
+    display : flex;
+    flex-direction : column;
+    margin : 10px;
+    /* font-size : 2rem; */
+    text-align : center;
+    border : var(--border);
+    border-radius : 3px;
+}
+.picture_card_character {
+    overflow : hidden;
+    border-bottom : var(--border);
+}
+.picture_card_character img{
+    width: 100%;
+}
+.shadow {
+    filter: brightness(80%);
+    animation : fade_in 0.2s ease;
+}
+.shadow:hover{
+    filter: brightness(100%);
+    animation : fade_out 0.2s ease;
+}
+#list_livre {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    justify-content : space-around;
+    margin : var(--under-header) 0 100px 0;
+}
+.card_livre {
+    /* width : 500px; */
+    background-color : var(--color-part);
+    display : flex;
+    flex-direction : column;
+    margin : 10px;
+    /* font-size : 2rem; */
+    text-align : center;
+    border : var(--border);
+    border-radius : 2px;
+}
+.picture_card_livre {
+    border-bottom : var(--border);
+}
+.picture_card_livre img {
+    height : 100%;
+}
+#up_button {
+    display : flex;
+    background-color : var(--color-part);
+    border-radius : 50%;
+    /* font-size: 3rem; */
+    height : 50px;
+    width : 50px;
+    align-items : center;
+    position : fixed;
+    right : 20px;
+    bottom : 20px;
+    border : var(--border);
+    justify-content : center;
+}
+#up_button svg{
+    height : 25px;
+    width : 25px;
+} 
+#gap {
+    height: 60px;
+}
+@keyframes fade_out
+{
+    from{
+        filter : brightness(80%);
+    }
+    to{
+        filter : brightness(100%);
+    }
+}
+@keyframes fade_in
+{
+    from{
+        filter : brightness(100%);
+    }
+    to{
+        filter : brightness(80%);
+    }
+}
+@keyframes hight_light
+{
+    from{
+        color : var(--color-font);
+    }
+    to{
+        color : var(--color-hover);
+    }
+}
+@keyframes revers_hight_light
+{
+    from{
+        color : var(--color-hover);
+    }
+    to{
+        color : var(--color-font);
+    }
+}
+@keyframes sticky_header
+{
+    from{
+        background-color : var(--color-part);
+    }
+    to{
+        transform : translateY(var(--y-transform-sticky));
+    }
+}
+@keyframes non_sticky_header
+{
+    from{
+        transform : translateY(var(--y-transform-sticky));
+    }
+    to{
+        background-color : var(--color-part);
+    }
+}
+@keyframes sticky_header_a
+{
+    from{
+        transform : scale(1);
+    }
+    to{
+        transform : scale(0.5) translateY(var(--y-transform-back-sticky));
+    }
+    
+}
+@keyframes non_sticky_header_a
+{
+    from{
+        transform : scale(0.5) translateY(var(--y-transform-back-sticky));
+    }
+    to{
+        transform : scale(1);
+    }
+    
+}
+*::-webkit-scrollbar {
+    width : 1px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color : var(--color-font);
+}
