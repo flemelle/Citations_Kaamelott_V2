@@ -9,7 +9,7 @@
         <ul>
         <a href = 'index.php?page=livre'><li>Livres</li></a>
         <a href = 'index.php?page=character'><li>Personnages</li></a>
-        <a href = 'index.php?page=quote'><li>Citations aléatoires</li></a>
+        <a href = 'index.php'><li>Citations aléatoires</li></a>
         </ul>
     </div>
 </header>
